@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d8c110b-aeb1-4c5d-a5b1-00dca7072e30" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Day0001/SetMatrixZero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Day0001/SetMatrixZero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Day0001/PascalTringle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Day0001/PascalTringle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +35,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.PascalTringle">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Leetcode" />
@@ -42,8 +43,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PascalTringle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day0001.PascalTringle" />
+      <module name="Leetcode" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Day0001.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PascalTringle" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
