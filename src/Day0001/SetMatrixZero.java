@@ -1,5 +1,6 @@
 package Day0001;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,14 +11,6 @@ public class SetMatrixZero {
 }
 
 class Solution {
-    private void printMatrix(int[][] matrix) {
-        for (int[] mat: matrix) {
-            for (int ints: mat) {
-                System.out.printf(" " + ints);
-            }
-            System.out.println();
-        }
-    }
     public void setZeroes(int[][] matrix) {
         boolean firstRowZero = false, firstColumnZero = false;
 
@@ -43,7 +36,7 @@ class Solution {
                 }
             }
         }
-        printMatrix(matrix);
+
         for (int i=1; i<m; ++i) {
             for(int j=1; j<n; ++j) {
                 if (matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;
