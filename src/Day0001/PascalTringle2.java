@@ -3,27 +3,19 @@ package Day0001;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PascalTringle {
+public class PascalTringle2 {
     public static void main(String[] args) {
-        Solution1 obj = new Solution1();
-        List<List<Integer>> output = obj.generate(4);
 
-        for (List<Integer> arr: output) {
-            for (Integer ints: arr) {
-                System.out.printf(" " + ints);
-            }
-            System.out.println();
-        }
     }
 }
 
-class Solution1 {
-    public List<List<Integer>> generate(int numRows) {
+class Solution7 {
+    public List<Integer> getRow(int rowIndex) {
         List<List<Integer>> response = new ArrayList<>();
 
         List<Integer> temp = new ArrayList<>();
 
-        for (int i = 0; i<numRows; ++i) {
+        for (int i = 0; i<rowIndex; ++i) {
             temp = new ArrayList<>();
             for (int j = 0; j<=i; ++j) {
                 if (j == 0 || j == i) {
@@ -34,6 +26,6 @@ class Solution1 {
             }
             response.add(temp);
         }
-        return response;
+        return response.get(rowIndex-1);
     }
 }
