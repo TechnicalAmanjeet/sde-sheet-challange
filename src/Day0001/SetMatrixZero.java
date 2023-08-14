@@ -10,28 +10,56 @@ public class SetMatrixZero {
 }
 
 class Solution {
+    private void printMatrix(int[][] matrix) {
+        for (int[] mat: matrix) {
+            for (int ints: mat) {
+                System.out.printf(" " + ints);
+            }
+            System.out.println();
+        }
+    }
     public void setZeroes(int[][] matrix) {
-        Set<Integer> x = new HashSet<>();
-        Set<Integer> y = new HashSet<>();
+        boolean firstRowZero = false, firstColumnZero = false;
 
-        int n = matrix.length;
-        int m = matrix[0].length;
+        int m = matrix.length;
+        int n = matrix[0].length;
 
-        for (int i=0; i<n; ++i) {
-            for(int j=0; j<m; ++j) {
-                if (matrix[i][j] == 0)  {
-                    x.add(i);
-                    y.add(j);
+        for (int i = 0; i<n; ++i)
+            if (matrix[0][i] == 0) {
+                firstRowZero = true;
+                break;
+            }
+        for (int[] ints : matrix)
+            if (ints[0] == 0) {
+                firstColumnZero = true;
+                break;
+            }
+
+        for (int i=1; i<m; ++i) {
+            for(int j=1; j<n; ++j) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
                 }
             }
         }
-
-        for (int i: x) {
-            for (int j=0;j<m; ++j) matrix[i][j] = 0;
+        printMatrix(matrix);
+        for (int i=1; i<m; ++i) {
+            for(int j=1; j<n; ++j) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;
+            }
         }
 
-        for (int j: y) {
-            for (int i=0;i<n;++i) matrix[i][j] = 0;
+        if (firstRowZero) {
+            for (int i = 0; i<n; ++i) {
+                matrix[0][i] = 0;
+            }
+        }
+
+        if (firstColumnZero) {
+            for (int i=0; i< m; ++i) {
+                matrix[i][0] = 0;
+            }
         }
     }
 }
