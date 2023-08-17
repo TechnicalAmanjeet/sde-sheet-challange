@@ -1,19 +1,61 @@
-package Day0001;
+package Extras;
 
-public class NextPermutation {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Permutations46 {
     public static void main(String[] args) {
-        Solution3 obj = new Solution3();
+        Solution46 obj = new Solution46();
 
         int[] array = {1,3,2};
-        for (int number: obj.nextPermutation(array)) {
-            System.out.printf(" " + number);
+        for (List<Integer> numbers: obj.permute(array)) {
+            for (Integer number: numbers) {
+                System.out.printf(" " + number);
+            }
+            System.out.println();
         }
         System.out.println();
     }
-
 }
 
-class Solution3 {
+class Solution46 {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> response = new ArrayList<>();
+
+        Arrays.sort(nums);
+        int[] arr = new int[nums.length];
+
+        for (int i=0; i<nums.length; ++i) {
+            arr[i] = nums[i];
+        }
+
+        response.add(convertArrayToList(arr));
+        do {
+            arr = nextPermutation(arr);
+            response.add(convertArrayToList(arr));
+        } while (!isBothArraySame(arr, nums));
+
+        return response;
+    }
+
+    public boolean isBothArraySame(int[] firstArray, int[] secondArray) {
+        for (int i = 0; i<firstArray.length; ++i) {
+            if (firstArray[i] != secondArray[i]) return false;
+        }
+
+        return true;
+    }
+
+    public List<Integer> convertArrayToList(int[] nums) {
+        List<Integer> response = new ArrayList<>();
+        for (int number: nums ) {
+            response.add(number);
+        }
+
+        return response;
+    }
+
     public int[] nextPermutation(int[] nums) {
 
         for (int i=nums.length-1; i>=0; --i) {
@@ -44,18 +86,6 @@ class Solution3 {
         return nums;
     }
 
-    public int[] revereArray(int[] nums, int startIndex, int lastIndex) {
-        for (int i = 0; i<= ((startIndex + lastIndex)/2) - startIndex; ++i) {
-            if ((startIndex + i) != (lastIndex - i)) {
-                nums[startIndex + i] = nums[startIndex + i] ^ nums[lastIndex - i];
-                nums[lastIndex - i] = nums[startIndex + i] ^ nums[lastIndex - i];
-                nums[startIndex + i] = nums[startIndex + i] ^ nums[lastIndex - i];
-            }
-        }
-
-        return nums;
-    }
-
     public int[] revereArrayUsingWhile(int[] nums, int startIndex, int lastIndex) {
         while (startIndex < lastIndex) {
             nums[startIndex] = nums[startIndex] ^ nums[lastIndex];
@@ -68,6 +98,4 @@ class Solution3 {
 
         return nums;
     }
-
-
 }
