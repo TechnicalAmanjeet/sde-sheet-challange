@@ -26,14 +26,20 @@ class Solution1 {
         for (int i = 0; i<numRows; ++i) {
             temp = new ArrayList<>();
             for (int j = 0; j<=i; ++j) {
-                if (j == 0 || j == i) {
-                    temp.add(1);
-                    continue;
-                }
-                temp.add(response.get(i-1).get(j-1) + response.get(i-1).get(j));
+                temp.add(nCr(i, j));
             }
             response.add(temp);
         }
+        return response;
+    }
+
+    public Integer nCr(Integer n, Integer r) {
+        int response = 1;
+        for (Integer i= 0; i<r; ++i) {
+            response = response * (n-i);
+            response = response / (i +1);
+        }
+
         return response;
     }
 }
